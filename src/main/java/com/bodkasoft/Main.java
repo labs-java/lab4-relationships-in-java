@@ -1,8 +1,7 @@
 package com.bodkasoft;
 
-import com.bodkasoft.handler.Sentence;
-import com.bodkasoft.handler.SentencePart;
-import com.bodkasoft.handler.Text;
+import com.bodkasoft.wrapper.Text;
+import com.bodkasoft.wrapper.Word;
 import com.bodkasoft.processor.StringProcessor;
 
 import java.util.Arrays;
@@ -17,14 +16,30 @@ public class Main {
                 " All it takes is a single step forward to begin the journey?";
 
     public static void main(String[] args) {
-        Text text = new Text(_text);
+        try{
+            Text text = new Text(_text);
 
-//        System.out.println(text);
+            StringProcessor stringProcessor = new StringProcessor(text);
 
-        StringProcessor stringProcessor = new StringProcessor(text);
+            System.out.println("<---Text--->");
+            System.out.println(text);
+            System.out.println();
 
-        SentencePart[] words = stringProcessor.getWords();
+            Word[] words = stringProcessor.getWords();
 
-        System.out.println(Arrays.toString(words));
+            Word[] wordsWithVowels = stringProcessor.findVowel(words);
+
+            System.out.println("<---Words with Vowels--->");
+            System.out.println(Arrays.toString(wordsWithVowels));
+            System.out.println();
+
+            Word[] sortedWords = stringProcessor.sortBySecondLetter(wordsWithVowels);
+
+            System.out.println("<---Sorted Words--->");
+            System.out.println(Arrays.toString(sortedWords));
+
+        }catch (IllegalArgumentException | IndexOutOfBoundsException e){
+            System.out.println(e.getMessage());
+        }
     }
 }

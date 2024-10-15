@@ -1,4 +1,4 @@
-package com.bodkasoft.handler;
+package com.bodkasoft.wrapper;
 
 public class Punctuation implements SentencePart {
 

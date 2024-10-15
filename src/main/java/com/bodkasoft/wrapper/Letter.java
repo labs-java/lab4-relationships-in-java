@@ -1,4 +1,4 @@
-package com.bodkasoft.handler;
+package com.bodkasoft.wrapper;
 
 public class Letter {
 
@@ -6,6 +6,10 @@ public class Letter {
 
     public Letter(char character) {
         this.character = character;
+    }
+
+    public char getCharacter() {
+        return character;
     }
 
     @Override

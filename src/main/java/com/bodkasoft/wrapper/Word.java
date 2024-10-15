@@ -1,4 +1,4 @@
-package com.bodkasoft.handler;
+package com.bodkasoft.wrapper;
 
 public class Word implements SentencePart {
 
@@ -21,6 +21,13 @@ public class Word implements SentencePart {
 
     public void setWord(Letter[] word) {
         this.word = word;
+    }
+
+    public char getCharById(int i){
+        if (i < 0 || i >= word.length){
+            throw new IndexOutOfBoundsException("Index out of bounds");
+        }
+        return word[i].getCharacter();
     }
 
     @Override

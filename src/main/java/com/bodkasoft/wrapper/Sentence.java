@@ -1,4 +1,4 @@
-package com.bodkasoft.handler;
+package com.bodkasoft.wrapper;
 
 import java.util.regex.Pattern;
 
@@ -32,6 +32,10 @@ public class Sentence {
         this.elements[index] = element;
     }
 
+    public SentencePart getElementById(int index) {
+        return this.elements[index];
+    }
+
     public SentencePart[] getElements(){
         return this.elements;
     }
@@ -53,9 +57,7 @@ public class Sentence {
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < elements.length; i++) {
-
             sb.append(elements[i]);
-
             if (i < elements.length - 1) {
                 if (!(elements[i + 1] instanceof Punctuation)) {
                     sb.append(" ");
