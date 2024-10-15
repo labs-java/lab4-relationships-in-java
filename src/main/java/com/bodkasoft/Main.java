@@ -1,5 +1,12 @@
 package com.bodkasoft;
 
+import com.bodkasoft.handler.Sentence;
+import com.bodkasoft.handler.SentencePart;
+import com.bodkasoft.handler.Text;
+import com.bodkasoft.processor.StringProcessor;
+
+import java.util.Arrays;
+
 public class Main {
 
     private static String _text = "In the quiet of early morning, the world seemed to hold its breath. " +
@@ -12,6 +19,12 @@ public class Main {
     public static void main(String[] args) {
         Text text = new Text(_text);
 
-        System.out.println(text);
+//        System.out.println(text);
+
+        StringProcessor stringProcessor = new StringProcessor(text);
+
+        SentencePart[] words = stringProcessor.getWords();
+
+        System.out.println(Arrays.toString(words));
     }
 }

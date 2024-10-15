@@ -1,6 +1,6 @@
-package com.bodkasoft;
+package com.bodkasoft.handler;
 
-public class Word {
+public class Word implements SentencePart {
 
     private Letter[] word;
 
@@ -9,6 +9,10 @@ public class Word {
         for(int i = 0; i < word.length(); i++){
             this.word[i] = new Letter(word.charAt(i));
         }
+    }
+
+    public int length(){
+        return word.length;
     }
 
     public Letter[] getWord() {

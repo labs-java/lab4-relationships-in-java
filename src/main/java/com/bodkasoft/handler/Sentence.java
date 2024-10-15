@@ -1,14 +1,14 @@
-package com.bodkasoft;
+package com.bodkasoft.handler;
 
 import java.util.regex.Pattern;
 
 public class Sentence {
 
-    private Object[] elements;
+    private final SentencePart[] elements;
 
     public Sentence(String sentence) {
         String[] tokens = sentence.split("(?=\\p{Punct})|(?<=\\p{Punct})|\\s+");
-        this.elements = new Object[tokens.length];
+        this.elements = new SentencePart[tokens.length];
 
         deleteSpaceInTokens(tokens);
 
@@ -22,6 +22,22 @@ public class Sentence {
                 this.elements[i] = new Punctuation(tokens[i].charAt(0));
             }
         }
+    }
+
+    public Sentence(int sentenceLength) {
+        this.elements = new SentencePart[sentenceLength];
+    }
+
+    public void setElement(int index, SentencePart element) {
+        this.elements[index] = element;
+    }
+
+    public SentencePart[] getElements(){
+        return this.elements;
+    }
+
+    public int getLength() {
+        return this.elements.length;
     }
 
     private void deleteSpaceInTokens(String[] tokens) {

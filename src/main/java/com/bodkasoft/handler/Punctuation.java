@@ -1,18 +1,10 @@
-package com.bodkasoft;
+package com.bodkasoft.handler;
 
-public class Punctuation {
+public class Punctuation implements SentencePart {
 
     private char symbol;
 
     public Punctuation(char symbol) {
-        this.symbol = symbol;
-    }
-
-    public char getSymbol() {
-        return symbol;
-    }
-
-    public void setSymbol(char symbol) {
         this.symbol = symbol;
     }
 

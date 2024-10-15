@@ -1,4 +1,4 @@
-package com.bodkasoft;
+package com.bodkasoft.handler;
 
 public class Text {
 
@@ -16,6 +16,10 @@ public class Text {
 
     private String removeExtraSpaces(String text) {
         return text.replaceAll("\\s+", " ").trim();
+    }
+
+    public boolean isEmpty(){
+        return sentences.length == 0;
     }
 
     public Sentence[] getSentences() {

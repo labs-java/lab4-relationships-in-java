@@ -1,17 +1,10 @@
-package com.bodkasoft;
+package com.bodkasoft.handler;
 
 public class Letter {
 
     private char character;
 
     public Letter(char character) {
-        this.character = character;
-    }
-
-    public char getLetter() {
-        return character;
-    }
-    public void setLetter(char character) {
         this.character = character;
     }
 
